@@ -30,7 +30,7 @@ function Use-DotEnv {
     }
 
     Write-Verbose "Getting variables"
-    $Pattern = '^(?<key>[a-z,A-Z,0-9]+)\=(?<value>.+)?'
+    $Pattern = '^(?<key>[a-z,A-Z,0-9,_]+)\=(?<value>.+)?'
     $EnvironmentVariables = (Select-String -Path $Path -Pattern $Pattern -AllMatches)
 
     foreach ($Match in $EnvironmentVariables.Matches) {
